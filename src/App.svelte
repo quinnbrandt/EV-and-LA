@@ -170,7 +170,11 @@
       <p><strong>HR:</strong> {homeruns}</p>
     </div>
   </div>
-  
+
+  <div class = "footnote">
+    <p> This data was sourced from <a href="https://www.example.com">baseball savant.</a> </p>
+  </div>
+
 </main>
 
 <style>
@@ -195,13 +199,13 @@
   }
 
 
-    .container {
+  .container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
   }
 
-    .text-box {
+  .text-box {
     margin-left: 20px;
     background-color: white;
     border: 1px solid black;
@@ -248,6 +252,44 @@
     border-radius: 3px;
     pointer-events: none;
     margin-top: 20px;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 15px;
+    background: #ddd;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+  }
+
+  input[type="range"]:hover {
+    opacity: 1;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: url('./assets/baseball.jpg') no-repeat;
+    background-size: contain;
+    cursor: pointer;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: url('./assets/baseball.jpg') no-repeat;
+    background-size: contain;
+    cursor: pointer;
+  }
+
+  .footnote {
+    margin-top: 20px;
+    font-size: 8px;
   }
 
 </style>
