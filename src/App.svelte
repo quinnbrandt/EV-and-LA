@@ -128,20 +128,21 @@
 </script>
 
 <main>
-  <h1>Introduction</h1>
+  <h1>Exit Velocity and Launch Angle 2023</h1>
   <p class="body-text">
     Baseball is one of the leading sports in the collection and usage of data. Two of the newer metrics which have
     gained popularity are Exit Velocity (EV) and Launch Angle (LA). Exit velocity
     is the speed (in mph) that the ball is travelling directly after contact. Launch angle is the angle
     (in degrees) that the ball is travelling after the initial contact. There is some additional vocabulary
-    that will be used throughout this project. The first of which is BBE or batted ball event is any
+    that will be necessary to understand the project. The first of which is BBE or batted ball event is any
     time a ball is hit that occurs in an out, a hit, or an error. wOBA or weighted on-base average 
     measures the value of each method of reaching base based on how much it changes projected runs scored.
   </p>
-  <h2>Objectives</h2>
+  <h2>What is the relationship between EV, LA, and hits?</h2>
   <p class = "body-text">
-    The goal of this project is to visualize the relationship between EV, LA, and the outcomes that they 
-    produce. In the graphic below, use the sliders to pick a desired EV and LA combination to inspect. If there
+    The relationship between EV, LA, is very complex because to truly understand the outcomes that they 
+    produce you must be able to interpret how far and what part of the field the ball would be likely to end up in.
+    In the graphic below, use the sliders to pick a desired EV and LA combination to inspect. If there
     were any recorded instances of that combination during the 2023 season, the box to the side will have a full breakdown
     of the statistics. Additionally you can see the percentage of BBEs that result in each of the bases by hovering over them.
   </p>
@@ -158,52 +159,30 @@
       <span>{launchAngle}</span>
     </div>
     <div class="text-box">
-      <h>Stats</h>
-      <p>Hits: {Hits}</p> 
-      <p>BBE: {BBE}</p>
-      <p>Avg. Distance (ft): {AvgDist}</p>
-      <p>Batting Avg.: {avg}</p>
-      <p>wOBA: {wOBA}</p>
-      <p>1B: {singles}</p>
-      <p>2B: {doubles}</p>
-      <p>3B: {triples}</p>
-      <p>HR: {homeruns}</p>
+      <p><strong>Hits:</strong> {Hits}</p> 
+      <p><strong>BBE:</strong> {BBE}</p>
+      <p><strong>Avg. Distance (ft):</strong> {AvgDist}</p>
+      <p><strong>Batting Avg.:</strong> {avg}</p>
+      <p><strong>wOBA:</strong> {wOBA}</p>
+      <p><strong>1B:</strong> {singles}</p>
+      <p><strong>2B:</strong> {doubles}</p>
+      <p><strong>3B:</strong> {triples}</p>
+      <p><strong>HR:</strong> {homeruns}</p>
     </div>
   </div>
-
-  <section id="conclusion">
-  <h1 class="body-header">Final Project Prototype -- Write Up</h1>
-    <h2 class="centered" style="margin-bottom: 15px">What we have done so far:</h2>
-      <p class="body-text" style="margin-bottom: 30px">
-        So far, we have created the webpage, implemented the scrollyteller, and established
-        some structure to the webpage. We have cleaned the data so that we can retrieve statistics for each combination of
-        exit velocity and launch angle. We created the baseball field, and added sliders below the baseball diamond so that you can
-        change the exit velocity and launch angle. We included a brief introduction to the project, along
-        with our overall objectives.
-      </p>
-   
-    <h2 class="centered" style="margin-bottom: 15px">What will be the most challenging:</h2>
-      <p class='body-text' style="margin-bottom: 30px">
-        The most challenging part of our design will probably be connecting the data from
-        our Jupyter Notebook to the interactive visualization. Our goal is to create text boxes when you hover over a base which
-        show the number of singles, doubles, triples, or home runs for the combination of exit velocity and launch angle. We also
-        want to color encode the bases so that it represents the likelihood of a hit getting on that particular base. This will be difficult as we will need to calculate coordinates, and figure out how to change the statistics based on the hovered base.
-    </p>
-</section>
   
 </main>
 
 <style>
 
   .body-text {
-    text-align: justify;
+    text-align: center;
     word-wrap: break-word;
-    font-size: 20px;
+    font-size: 12px;
     line-height: 1.5; 
     margin-top: 20px;
-    margin-bottom: 20px;
+    max-width: 500px;
   }
-
 
   h1, h2 {
       text-align: center;
@@ -212,6 +191,7 @@
       color: #333;
       margin-top: 20px;
       margin-bottom: 20px;
+      max-width: 500px;
   }
 
 
@@ -219,7 +199,6 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin-top: 50px;
   }
 
     .text-box {
@@ -228,19 +207,25 @@
     border: 1px solid black;
     padding: 10px;
     border-radius: 10px;
+    font-size: 12px;
+    transform: scale(0.8);
+    margin-top: -90px;
+    column-count: 2;
+    column-gap: 20px;
   }
 
   svg {
     display: block;
     margin: auto;
-    margin-top: 50px;
-  }
+    transform: scale(0.67); 
+  } 
   
   .slider-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: -90px;
+    transform: scale(0.8);
   }
   
   .slider-container label {
@@ -248,11 +233,11 @@
   }
   
   .slider-container input {
-    margin: 5px 0;
+    margin: 5px;
   }
   
   .slider-container span {
-    margin-bottom: 20px;
+    margin-bottom: 2px;
   }
   
   .hover-box {
@@ -265,8 +250,4 @@
     margin-top: 20px;
   }
 
-
-  #conclusion {
-    padding: 2rem 1rem;
-  }
 </style>
