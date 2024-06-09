@@ -57,11 +57,10 @@
       double_per = +entry['2B %'];
       triple_per = +entry['3B %'];
       homer_per = +entry['HR %'];
-      console.log(homer_per)
-      console.log(single_per);
       drawDiamond();
     } else {
       Hits = BBE = AvgDist = avg = wOBA = singles = doubles = triples = homeruns = single_per = double_per = triple_per = homer_per = 0;
+      drawDiamond();
     }
   }
 
@@ -69,6 +68,8 @@
     const width = 500;
     const height = 500;
     const margin = { top: 20, right: 20, bottom: 20, left: 20 };
+
+    d3.select("#diamond").selectAll("*").remove();
 
     const svg = d3
       .select("#diamond")
@@ -131,7 +132,7 @@
     ];
 
     const logScale = d3.scaleLog()
-      .domain([1, 100])  // Adjust the domain based on your data range
+      .domain([1, 100])
       .range([0, 1]);
 
     bases.forEach((base) => {
